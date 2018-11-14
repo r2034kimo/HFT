@@ -1,0 +1,6 @@
+#!/bin/bash 
+
+export BASH=`pwd`
+export TOOL="$BASH/TOOL"
+export FONT="$TOOL/FONT"
+export SCRIPT="$BASH/script"
