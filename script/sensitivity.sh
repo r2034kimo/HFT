@@ -41,6 +41,6 @@ run_sensor_test()
 	echo "Your sensitivity is very good..."
    fi 
 }
-
+clear 
 run_sensor_test
 

@@ -53,7 +53,7 @@ game(){
      
      standard='^[rps]+$'
      r=1
-     echo "$rounds times ... start the game!!"
+     toilet -f digital -F metal "Rock Paper Scissor game!! "
      while [ $rounds -gt 0 ] 
      do 
          echo "Round: $r"     
@@ -99,6 +99,7 @@ game(){
      
      if [ $computer_score -gt $human_score ]; then
        	toilet -f future -F metal "YOU LOSE!"
+	exit 1
      elif [ $human_score -gt $computer_score ]; then
         toilet -f future -F gay "YOU WIN :)"
      elif [ $computer_score -eq $human_score ]; then
@@ -106,5 +107,7 @@ game(){
      fi
 
 }
+
+clear
 
 game

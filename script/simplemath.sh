@@ -41,7 +41,7 @@ calcute(){
 
 game(){
 
-
+	toilet -f digital -F metal "Math Test"
 	echo "Begin to test your Math skill"
 	r=1
 	while [ $rounds -gt 0 ] 
@@ -79,5 +79,5 @@ game(){
 	echo "You got $correct out of $r" 
 
 }
-
+clear
 game

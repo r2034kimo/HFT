@@ -27,12 +27,13 @@ run_toilet(){
     str=
     convert_string $1
 
-    toilet -f letter -w 160 --gay "$str"	
+    toilet -f bigascii12 -w 160 --gay "$str"	
 }
 
 show_msg(){
 
 run_toilet HAPPY
+wait 
 run_toilet Birthday
 
 }
@@ -49,8 +50,7 @@ while true; do
 
     sleep 1
 
-    echo 'Press any key to exit'
-    if read -r -N 1 -t 0 ; then
+    if read -r -N 1 -t 0; then
         break
     fi
 

@@ -1,5 +1,7 @@
 #!/bin/bash 
 
+toilet -f digital -F metal "Basic Information"
+
 echo "Read carefully, this program is only for JU.!!"
 read -p "Who are you?" name
 

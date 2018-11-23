@@ -9,13 +9,13 @@ computer_score=0
 
 compute_chosen(){
      com_ram=$(shuf -i 1-6 -n 1)
-	 hum_ram=$(shuf -i 1-6 -n 1)
+     hum_ram=$(shuf -i 1-6 -n 1)
 }
 
 game(){
      
      r=1
-	 toilet -f digital -F metal "ROLL A DICE"                    
+     toilet -f digital -F metal "ROLL A DICE"                    
      while [ $rounds -gt 0 ] 
      do 
          echo -e "\nRound: $r"     
@@ -51,5 +51,5 @@ game(){
      fi
 
 }
-
+clear
 game

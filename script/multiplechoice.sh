@@ -2,6 +2,9 @@
 
 declare -A matrix
 
+file="$1"
+
+
 muti_choice(){
 
 	option1="$1" 
@@ -11,13 +14,15 @@ muti_choice(){
 	
 	echo "Please select one:"
 	local i=1
-	echo "======================================"
+	echo "**********************************************************************"
+	echo "**********************************************************************"
 	for o in "$option1" "$option2" "$option3" "$option4"
 	do 
 		echo "$i) $o"
 		let i+=1
 	done 
-	echo "======================================"
+	echo "**********************************************************************"
+	echo "**********************************************************************"
 	
 	read result
 
@@ -44,12 +49,12 @@ muti_choice(){
 get_config(){
 	
 
-	IFS=$'\n' read -d '' -r -a lines < config 
+	IFS=$'\n' read -d '' -r -a lines < $1
 	for (( l=1; l<${#lines[@]}; l++))
 	do
 		IFS=',' read -r ques opt1 opt2 opt3 opt4 ans <<< ${lines[$l]}
 		 
-		echo "Question ${q}: $ques"
+		echo -e "\033[1;31;42m Question ${q}: $ques \033[0m"
 		muti_choice "$opt1" "$opt2" "$opt3" "$opt4"
 
 		if [ "${usr_ans}" == "${ans}" ];then
@@ -58,10 +63,13 @@ get_config(){
                         echo "Wrong"
                         exit 1
         	fi
+
+		clear
 	done 
 	
 
 }
+clear 
 
-get_config 
+get_config $file
 
