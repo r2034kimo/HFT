@@ -15,7 +15,7 @@ compute_chosen(){
 game(){
      
      r=1
-     toilet -f digital -F metal "ROLL A DICE"                    
+     toilet -f slant -F metal "ROLL A DICE"                    
      while [ $rounds -gt 0 ] 
      do 
          echo -e "\nRound: $r"     
@@ -32,8 +32,7 @@ game(){
 		 else 
 			echo "TIE!"
 		 fi 
-		 sleep 3
-		 read -p "Please press any key....!" key
+		 sleep 1
 		 
 		 let rounds-=1
 		 let r+=1
@@ -43,9 +42,10 @@ game(){
      echo "My scored: $computer_score"
      
      if [ $computer_score -gt $human_score ]; then
-       	toilet -f future -F metal "YOU LOSE!"
+       	toilet -f slant -F metal "YOU LOSE!"
+	exit 1
      elif [ $human_score -gt $computer_score ]; then
-        toilet -f future -F gay "YOU WIN :)"
+        toilet -f slant -F gay "YOU WIN :)"
      elif [ $computer_score -eq $human_score ]; then
         echo "The game is a draw!"
      fi
@@ -53,3 +53,5 @@ game(){
 }
 clear
 game
+
+sleep 2

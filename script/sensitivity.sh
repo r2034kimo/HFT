@@ -25,7 +25,9 @@ countdown()
 
 run_sensor_test()
 {
-   echo -ne "Please press . in 5 seconds!\n You must press over than $times !\n Remeber to press "Enter" in last second.\n" 
+   toilet -f slant -F metal "Sensitivity test"
+
+   echo -ne "Please press . in 5 seconds!\nYou must press over than $times !\nRemeber to press "Enter" in last second.\n" 
    echo "3" && sleep 1
    echo "2" && sleep 1 
    echo "1" && sleep 1  
@@ -43,4 +45,4 @@ run_sensor_test()
 }
 clear 
 run_sensor_test
-
+sleep 1

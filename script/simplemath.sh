@@ -41,7 +41,7 @@ calcute(){
 
 game(){
 
-	toilet -f digital -F metal "Math Test"
+	toilet -f slant -F metal "Math Test"
 	echo "Begin to test your Math skill"
 	r=1
 	while [ $rounds -gt 0 ] 
@@ -81,3 +81,5 @@ game(){
 }
 clear
 game
+
+sleep 1 

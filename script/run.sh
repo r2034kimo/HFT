@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # main
-show_finial_msg(){
+show_final_msg(){
+	./train.sh
 	./toilet.sh
 	./message.sh
 
@@ -11,12 +12,11 @@ show_pass_msg(){
 
 	toilet -f bigascii12 -F gay "PASS"
 
-
-
 }
 
 show_fail_msg(){
 	toilet -f bigascii12 -F metal "FAILED"
+	
 }
 
 run_script(){
@@ -29,13 +29,14 @@ run_script(){
 		#show_pass_msg
 	else 
 		show_fail_msg
-		exit 1 
+		return 1
 	fi 
 }
 
 run_process(){
-
-	get_item=(train basic multiplechoice play_rps dices multiplechoice sensitivity simplemath)
+	clear 
+	toilet -f mono9 -F metal "Test Begin"
+	get_item=(basic multiplechoice play_rps dices multiplechoice sensitivity simplemath)
 	f=1
 	file=
 	for item in ${get_item[@]}
@@ -43,15 +44,30 @@ run_process(){
 
 		if [ "${item}" == "multiplechoice" ];then 
 			local file="config${f}"
-			echo "$item $file"	
-			run_script "$item" "$file"		
+			run_script "$item" "$file"
+			re=$? 		
 			let f+=1
 		else 
-			echo "$item"
 			run_script "$item"
+			re=$? 
 		fi  
+		if [ $re -ne 0 ];then 
+			return 1
+		fi 
+		
 	done 	
 
 }
 
-run_process
+while (( 1 )) 
+do
+	run_process
+	if [ $? -eq 0 ];then 
+		break;
+	fi  
+
+	echo "Take 2 seconds break and try again!!" && sleep 2
+
+done
+show_final_msg
+
